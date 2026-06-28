@@ -1025,7 +1025,11 @@ function updateHistory(name, rows) {
   localStorage.setItem('bap_history', JSON.stringify(uploadHistory));
   renderHistory();
 }
-
+function getApiKey() {
+  let key = localStorage.getItem('gemini_key');
+  if (!key) { key = prompt('Enter your Gemini API key:'); if (key) localStorage.setItem('gemini_key', key); }
+  return key;
+}
 function renderHistory() {
   document.getElementById('history-list').innerHTML = uploadHistory.map((h,i) =>
     `<div style="padding:6px 8px;border-radius:8px;cursor:pointer;font-size:11px;font-weight:600;color:var(--text3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:var(--bg3)" title="${h.name}" onclick="toast('Reload file: ${h.name} (re-upload file to restore)')"">
