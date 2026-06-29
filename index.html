@@ -520,7 +520,7 @@ async function callGemini(prompt) {
     method: 'POST',
     headers: { 
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer AQ.Ab8RN6KVuHRN916RkDv7xT3JHUpje2azsQnfOXnPMyQWrM9IYg'
+      'x-goog-api-key': 'AQ.Ab8RN6KVuHRN916RkDv7xT3JHUpje2azsQnfOXnPMyQWrM9IYg'
     },
     body: JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
